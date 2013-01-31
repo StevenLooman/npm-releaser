@@ -1,0 +1,32 @@
+{
+  "name": "npm-releaser",
+  "description": "npm releaser",
+  "version": "0.0.1-dev0",
+  "author": {
+    "name": "Steven Looman",
+    "email": "steven.looman@gmail.com"
+  },
+  "dependencies": {
+    "async": "0.1.22"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "npm",
+    "version control",
+    "svn",
+    "git",
+    "release",
+    "utils"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "main": "index",
+  "bin": {
+    "npm-releaser": "./bin/main"
+  },
+  "engines": {
+    "node": "0.8"
+  }
+}
