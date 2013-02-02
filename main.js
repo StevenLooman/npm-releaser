@@ -15,8 +15,14 @@ var vcs = findVcs();
 var command = parseCommand();
 
 // execute command
-command.run(vcs);
+command.run(vcs, reportError);
 
+
+function reportError(err) {
+    if (err) {
+        console.error('Caught error: ', err);
+    }
+}
 
 function printHelp() {
     console.log('npm-releaser help');
