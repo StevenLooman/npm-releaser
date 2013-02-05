@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 
 
-KNOWN_COMMANDS = [ 'prerelease', 'release', 'postrelease' ];
+var npmReleaser = require('../');
+
+
+KNOWN_COMMANDS = [ 'prerelease', 'release', 'postrelease', 'fullrelease' ];
 
 VCS_MODULES = {
-    'git': require('./lib/git')
+    'git': npmReleaser['git']
 };
 
 
@@ -18,6 +21,7 @@ var command = parseCommand();
 command.run(vcs, reportError);
 
 
+// helpers
 function reportError(err) {
     if (err) {
         console.error('Caught error: ', err);
@@ -25,11 +29,12 @@ function reportError(err) {
 }
 
 function printHelp() {
-    console.log('npm-releaser help');
+    console.log('npm-releaser <command>');
+    console.log('available commands: ' + KNOWN_COMMANDS);
 }
 
 function printNeedVcs() {
-    console.log('No version control system (git, svn, ...) detected!');
+    console.log('No version control system (git, ...) detected!');
 }
 
 function findVcs() {
@@ -53,5 +58,5 @@ function parseCommand() {
         process.exit(-1);
     }
 
-    return require('./lib/' + command);
+    return npmReleaser[command];
 }
