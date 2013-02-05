@@ -33,3 +33,5 @@ The current shortcomings are:
 - Only understands NPM (are there any others?)
 - Bound to [Semantic Versioning](http://semver.org/)
 - Several more?
+
+A more complete releaser is [cut-a-release](https://npmjs.org/package/cut-a-release).
